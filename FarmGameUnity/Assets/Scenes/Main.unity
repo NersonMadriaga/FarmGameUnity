@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 29064655}
   - component: {fileID: 29064654}
   - component: {fileID: 29064653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,8 +834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b44bf630a23a8f49a3cf5ed51207b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 963194227}
-  agent: {fileID: 1115019185}
+  whatCanBeClickedon:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!195 &1115019185
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -847,10 +848,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 10
-  m_Acceleration: 5
+  m_Acceleration: 6
   avoidancePriority: 50
-  m_AngularSpeed: 200
-  m_StoppingDistance: 0.1
+  m_AngularSpeed: 90
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

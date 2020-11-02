@@ -4,22 +4,30 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Camera cam;
-    public NavMeshAgent agent;
+    public LayerMask whatCanBeClickedon;
+    private NavMeshAgent agent;
 
-    // Update is called once per frame
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit))
+            if(Physics.Raycast(ray, out hit,100,whatCanBeClickedon))
             {
                 // move agent
-                agent.SetDestination(hit.point);
+                agent.destination = hit.point;
             }
+        }
+
+        if(agent.remainingDistance <= agent.stoppingDistance)
+        {
+            agent.velocity = Vector3.zero;
         }
     }
 }
